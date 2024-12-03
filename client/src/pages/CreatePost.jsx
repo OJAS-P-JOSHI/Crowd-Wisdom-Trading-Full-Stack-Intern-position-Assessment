@@ -8,7 +8,7 @@ const CreatePost = () => {
   const handleSubmit = (e) => {
     e.preventDefault(); 
 
-    fetch('https://crowd-wisdom-trading-full-stack-intern-p-ojas-p-joshis-projects.vercel.app/api/posts', {
+    fetch('https://crowd-wisdom-trading-full-stack-intern.onrender.com/api/posts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title, content }),

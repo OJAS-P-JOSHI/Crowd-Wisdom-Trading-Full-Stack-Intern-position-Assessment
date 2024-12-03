@@ -6,7 +6,7 @@ const Home = () => {
   
   // Fetch posts from the backend
   useEffect(() => {
-    fetch('https://crowd-wisdom-trading-full-stack-intern-p-ojas-p-joshis-projects.vercel.app//api/posts') // Replace with your backend URL
+    fetch('https://crowd-wisdom-trading-full-stack-intern.onrender.com/api/posts') // Replace with your backend URL
       .then((response) => response.json())
       .then((data) => setPosts(data))
       .catch((error) => console.error('Error fetching posts:', error));
