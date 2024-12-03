@@ -7,9 +7,8 @@ const postsRoutes = require('./routes/postsRoutes');
 const app = express();
 
 // Middleware
-const allowedOrigins = [
-  'http://localhost:3000', // Local development URL
-  'https://crowd-wisdom-trading-full-stack-intern-position-assessment.vercel.app/', // Frontend URL from .env
+const allowedOrigins = [ // Local development URL
+  'https://crowd-wisdom-trading-full-stack-intern-position-assessment.vercel.app/' // Frontend URL from .env
 ];
 
 app.use(
