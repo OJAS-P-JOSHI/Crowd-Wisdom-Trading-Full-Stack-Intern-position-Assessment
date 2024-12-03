@@ -1,0 +1,33 @@
+.create-post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .input, .textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .textarea {
+    min-height: 150px;
+  }
+  
+  .submit-btn {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+  }
+  
