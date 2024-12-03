@@ -1,12 +1,24 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const postsRoutes = require('./routes/postsRoutes');
 
 const app = express();
 
 // Middleware
-app.use(cors());
+const allowedOrigins = [
+  'http://localhost:3000', // Local development URL
+  'https://crowd-wisdom-trading-full-stack-intern-position-assessment.vercel.app/', // Frontend URL from .env
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 // Routes
@@ -14,7 +26,25 @@ app.use('/api/posts', postsRoutes);
 
 // Default route
 app.get('/', (req, res) => {
-  res.send('API is running');
+  res.json({
+    message: 'API is running',
+    availableRoutes: ['/api/posts'],
+  });
+});
+
+// Serve frontend in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
 });
 
 // Start server
