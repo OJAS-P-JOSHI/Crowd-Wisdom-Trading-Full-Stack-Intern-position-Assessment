@@ -6,7 +6,7 @@ const CreatePost = () => {
   const [content, setContent] = useState('');
 
   const handleSubmit = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     fetch('https://crowd-wisdom-trading-full-stack-intern.onrender.com/api/posts', {
       method: 'POST',

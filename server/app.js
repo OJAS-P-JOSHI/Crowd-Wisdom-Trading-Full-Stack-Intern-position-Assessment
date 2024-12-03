@@ -7,17 +7,14 @@ const postsRoutes = require('./routes/postsRoutes');
 const app = express();
 
 // Middleware
-const allowedOrigins = [ // Local development URL
-  'https://crowd-wisdom-trading-full-stack-intern-position-assessment.vercel.app/' // Frontend URL from .env
-];
-
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: '*', // Allow requests from all origins
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true,
+    credentials: false, // Set to true only if using cookies or HTTP authentication
   })
 );
+
 app.use(express.json());
 
 // Routes
