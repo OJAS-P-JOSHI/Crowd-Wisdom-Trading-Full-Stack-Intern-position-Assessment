@@ -6,9 +6,9 @@ const CreatePost = () => {
   const [content, setContent] = useState('');
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
 
-    fetch('http://localhost:5000/api/posts', {
+    fetch('https://crowd-wisdom-trading-full-stack-intern-p-ojas-p-joshis-projects.vercel.app/api/posts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title, content }),
