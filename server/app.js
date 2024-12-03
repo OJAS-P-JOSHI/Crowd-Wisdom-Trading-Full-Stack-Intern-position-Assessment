@@ -7,11 +7,21 @@ const postsRoutes = require('./routes/postsRoutes');
 const app = express();
 
 // Middleware
+const allowedOrigins = [
+  'https://crowd-wisdom-trading-full-stack-intern-position-assessment.vercel.app', // Vercel frontend
+];
+
 app.use(
   cors({
-    origin: '*', // Allow requests from all origins
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: false, // Set to true only if using cookies or HTTP authentication
+    credentials: true,
   })
 );
 
